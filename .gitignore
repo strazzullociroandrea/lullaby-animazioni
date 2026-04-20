@@ -48,3 +48,10 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+.agents
+.idea
+.vscode
+node_modules
+.env.example
+package-lock.json
