@@ -89,8 +89,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    Navbar: Navbar;
+  };
+  globalsSelect: {
+    Navbar: NavbarSelect<false> | NavbarSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -368,6 +372,48 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Navbar".
+ */
+export interface Navbar {
+  id: number;
+  logo: number | Media;
+  logoText?: string | null;
+  navItems?:
+    | {
+        pageReference: number | Page;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  instagram?: string | null;
+  facebook?: string | null;
+  phoneNumber?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Navbar_select".
+ */
+export interface NavbarSelect<T extends boolean = true> {
+  logo?: T;
+  logoText?: T;
+  navItems?:
+    | T
+    | {
+        pageReference?: T;
+        label?: T;
+        id?: T;
+      };
+  instagram?: T;
+  facebook?: T;
+  phoneNumber?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
