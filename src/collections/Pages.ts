@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { HeroConfig } from '@/blocks/Hero/config'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -70,16 +71,16 @@ export const Pages: CollectionConfig = {
             },
           ],
         },
-        /*{
+        {
           label: 'Content Layout',
           fields: [
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [],
+              blocks: [HeroConfig],
             },
           ],
-        },*/
+        },
       ],
     },
   ],

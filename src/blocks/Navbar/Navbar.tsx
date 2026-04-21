@@ -12,11 +12,9 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
   const pathname = usePathname()
 
   const [open, setOpen] = useState(false)
-  const [mServices, setMServices] = useState(false)
 
   const close = () => {
     setOpen(false)
-    setMServices(false)
   }
 
   return (

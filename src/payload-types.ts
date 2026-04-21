@@ -189,6 +189,21 @@ export interface Page {
         }[]
       | null;
   };
+  layout?:
+    | {
+        backgroundColor?: ('bg-white' | 'bg-primary' | 'bg-yellow-80' | 'bg-blue-80') | null;
+        title: string;
+        subtitle: string;
+        motto?: string | null;
+        image: number | Media;
+        ctaLabel?: string | null;
+        ctaPage?: (number | null) | Page;
+        showPath?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero';
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -328,6 +343,24 @@ export interface PagesSelect<T extends boolean = true> {
               name?: T;
               content?: T;
               id?: T;
+            };
+      };
+  layout?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              backgroundColor?: T;
+              title?: T;
+              subtitle?: T;
+              motto?: T;
+              image?: T;
+              ctaLabel?: T;
+              ctaPage?: T;
+              showPath?: T;
+              id?: T;
+              blockName?: T;
             };
       };
   updatedAt?: T;

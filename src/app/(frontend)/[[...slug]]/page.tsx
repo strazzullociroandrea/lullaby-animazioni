@@ -1,7 +1,8 @@
 import { getPayload } from 'payload'
-import configPromise from '@/payload.config'
 import { notFound } from 'next/navigation'
+import configPromise from '@/payload.config'
 import React from 'react'
+import { Hero } from '@/blocks/Hero/Hero'
 
 export default async function SlugPage({ params }: { params: Promise<{ slug?: string[] }> }) {
   const { slug: slugArray } = await params
@@ -25,5 +26,16 @@ export default async function SlugPage({ params }: { params: Promise<{ slug?: st
     return notFound()
   }
 
-  return <main></main>
+  const heroResult = page.layout?.find((block) => block.blockType === 'hero')
+
+  return (
+    <main>
+      {page.layout?.map((block: any, index: number) => {
+        if (block.blockType === 'hero') {
+          return <Hero headerData={heroResult} key="hero" />
+        }
+        return null
+      })}
+    </main>
+  )
 }
