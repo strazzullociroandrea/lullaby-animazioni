@@ -173,6 +173,7 @@ export interface Media {
  */
 export interface Page {
   id: number;
+  favicon?: (number | null) | Media;
   title: string;
   /**
    * L'URL della pagina (es: la-mia-pagina)
@@ -330,6 +331,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  favicon?: T;
   title?: T;
   slug?: T;
   meta?:

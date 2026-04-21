@@ -4,10 +4,7 @@ import { Navbar } from '@/blocks/Navbar/Navbar'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
-}
+
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
@@ -16,6 +13,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     slug: 'Navbar',
     depth: 1,
   })
+
 
   return (
     <html lang="en">

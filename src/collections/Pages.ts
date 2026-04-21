@@ -13,6 +13,12 @@ export const Pages: CollectionConfig = {
   },
   fields: [
     {
+      name: 'favicon',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Icona Tab Browser (Favicon)',
+    },
+    {
       type: 'tabs',
       tabs: [
         {
