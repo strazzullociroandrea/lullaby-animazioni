@@ -191,19 +191,52 @@ export interface Page {
       | null;
   };
   layout?:
-    | {
-        backgroundColor?: ('bg-white' | 'bg-primary' | 'bg-yellow-80' | 'bg-blue-80') | null;
-        title: string;
-        subtitle: string;
-        motto?: string | null;
-        image: number | Media;
-        ctaLabel?: string | null;
-        ctaPage?: (number | null) | Page;
-        showPath?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero';
-      }[]
+    | (
+        | {
+            backgroundColor?: ('bg-white' | 'bg-primary' | 'bg-yellow-80' | 'bg-blue-80') | null;
+            title: string;
+            subtitle: string;
+            motto?: string | null;
+            image: number | Media;
+            ctaLabel?: string | null;
+            ctaPage?: (number | null) | Page;
+            showPath?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            cards?:
+              | {
+                  title?: string | null;
+                  content?: string | null;
+                  iconType?: ('lucide' | 'image') | null;
+                  lucideIcon?: string | null;
+                  uploadIcon?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'what-we-do';
+          }
+      )[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -361,6 +394,24 @@ export interface PagesSelect<T extends boolean = true> {
               ctaLabel?: T;
               ctaPage?: T;
               showPath?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'what-we-do'?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    iconType?: T;
+                    lucideIcon?: T;
+                    uploadIcon?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

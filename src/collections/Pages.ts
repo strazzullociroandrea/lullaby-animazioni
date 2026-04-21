@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 import { HeroConfig } from '@/blocks/Hero/config'
+import { WhatWeDo } from '@/blocks/WhatWeDo/config'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -83,7 +84,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [HeroConfig],
+              blocks: [HeroConfig, WhatWeDo],
             },
           ],
         },
