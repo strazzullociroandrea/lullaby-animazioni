@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ArrowDown } from 'lucide-react'
 
 export const Hero = ({ headerData }: { headerData: any }) => {
   const { backgroundColor, title, subtitle, motto, ctaLabel, ctaPage, image } = headerData
@@ -28,9 +29,12 @@ export const Hero = ({ headerData }: { headerData: any }) => {
                 {ctaLabel}
               </Link>
             </div>
+            <div className="flex flex-wrap gap-4 mt-12 items-center justify-center w-full animate-bounce">
+              <ArrowDown />
+            </div>
           </div>
 
-          <div className="relative animate-pop-in [animation-delay:0.2s]">
+          <div className="hidden sm:block relative animate-pop-in [animation-delay:0.2s]">
             <div className="relative aspect-square max-w-md mx-auto">
               <div className="absolute -inset-6 rounded-[3rem] bg-primary-foreground/10 backdrop-blur-sm" />
               <img
