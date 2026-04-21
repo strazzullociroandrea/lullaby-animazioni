@@ -226,6 +226,7 @@ export interface Page {
               | {
                   title?: string | null;
                   content?: string | null;
+                  toPage: number | Page;
                   iconType?: ('lucide' | 'image') | null;
                   lucideIcon?: string | null;
                   uploadIcon?: (number | null) | Media;
@@ -407,6 +408,7 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     title?: T;
                     content?: T;
+                    toPage?: T;
                     iconType?: T;
                     lucideIcon?: T;
                     uploadIcon?: T;

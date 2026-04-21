@@ -1,7 +1,12 @@
 import { RichText } from '@payloadcms/richtext-lexical/react'
 
 export const WhatWeDo = ({ headerData }: { headerData: any }) => {
-  const { title, description } = headerData
+  const { title, description, cards } = headerData
+
+  const getCardColor = (index: number) => {
+    const bgColors = ['bg-brand-blue', 'bg-brand-pink', 'bg-brand-orange', 'bg-brand-green']
+    return bgColors[index % bgColors.length]
+  }
 
   return (
     <section id="cosa-facciamo" className="py-10 md:py-5 ">
@@ -27,6 +32,21 @@ export const WhatWeDo = ({ headerData }: { headerData: any }) => {
               <RichText data={description} />
             </div>
           )}
+        </div>
+        <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {cards.map((s: any, i: number) => (
+            <a
+              href={s.toPage.url}
+              key={s.title}
+              className={`${getCardColor(i)} rounded-3xl p-7 text-primary-foreground shadow-card-soft hover:-translate-y-2 hover:shadow-glow transition-bounce animate-pop-in block`}
+              style={{ animationDelay: `${i * 0.08}s` }}
+            >
+              <div className="w-14 h-14 rounded-2xl bg-primary-foreground/20 backdrop-blur flex items-center justify-center mb-5"></div>
+              <h3 className="font-display font-bold text-xl mb-3 leading-tight">{s.title}</h3>
+              <p className="text-sm text-primary-foreground/90 leading-snug mb-5">{s.content}</p>
+              <div className="text-xs font-bold opacity-90">Scopri →</div>
+            </a>
+          ))}
         </div>
       </div>
     </section>

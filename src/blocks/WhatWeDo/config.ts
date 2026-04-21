@@ -33,6 +33,13 @@ export const WhatWeDo: Block = {
           label: 'Descrizione Servizio',
         },
         {
+          name: 'toPage',
+          type: 'relationship',
+          relationTo: 'pages',
+          required: true,
+          label: 'Seleziona Pagina',
+        },
+        {
           name: 'iconType',
           type: 'select',
           label: 'Tipo di Icona',
