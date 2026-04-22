@@ -23,6 +23,7 @@ export const NavbarConfig: GlobalConfig = {
             {
               name: 'logoText',
               type: 'text',
+              required: true,
               label: 'Testo sotto il logo',
               admin: {
                 placeholder: 'Es: Animazione per bambini',
@@ -52,6 +53,7 @@ export const NavbarConfig: GlobalConfig = {
                 {
                   name: 'label',
                   type: 'text',
+                  required: true,
                   label: 'Etichetta personalizzata (opzionale)',
                 },
               ],
@@ -65,18 +67,21 @@ export const NavbarConfig: GlobalConfig = {
               name: 'instagram',
               type: 'text',
               label: 'Link Instagram',
+              required: true,
               admin: { placeholder: 'https://instagram.com/...' },
             },
             {
               name: 'facebook',
               type: 'text',
               label: 'Link Facebook',
+              required: true,
               admin: { placeholder: 'https://facebook.com/...' },
             },
             {
               name: 'phoneNumber',
               type: 'text',
               label: 'Numero di Cellulare',
+              required: true,
               admin: { placeholder: '+39 333 ...' },
             },
           ],

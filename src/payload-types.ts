@@ -560,9 +560,9 @@ export interface Navbar {
         id?: string | null;
       }[]
     | null;
-  instagram?: string | null;
-  facebook?: string | null;
-  phoneNumber?: string | null;
+  instagram: string;
+  facebook: string;
+  phoneNumber: string;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
