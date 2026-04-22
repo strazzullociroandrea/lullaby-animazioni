@@ -23,11 +23,13 @@ export const SoulConfig: Block = {
       type: 'upload',
       relationTo: 'media',
       label: 'Carica Immagine',
+      required: true,
     },
     {
       name: 'content',
       type: 'richText',
       label: 'Contenuto completo',
+      required: true,
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [...defaultFeatures],
       }),

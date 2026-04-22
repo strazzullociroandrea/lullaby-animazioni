@@ -38,6 +38,7 @@ export const NavbarConfig: GlobalConfig = {
               name: 'navItems',
               type: 'array',
               label: 'Pagine nel Menu',
+              required: true,
               labels: {
                 singular: 'Link Pagina',
                 plural: 'Link Pagine',

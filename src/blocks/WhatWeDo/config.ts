@@ -25,11 +25,13 @@ export const WhatWeDo: Block = {
         {
           name: 'title',
           type: 'text',
+          required: true,
           label: 'Titolo Servizio',
         },
         {
           name: 'content',
           type: 'textarea',
+          required: true,
           label: 'Descrizione Servizio',
         },
         {
@@ -44,6 +46,7 @@ export const WhatWeDo: Block = {
           type: 'select',
           label: 'Tipo di Icona',
           defaultValue: 'lucide',
+          required: true,
           options: [
             { label: 'Icona Lucide (Testo)', value: 'lucide' },
             { label: 'Immagine Personale', value: 'image' },
@@ -51,6 +54,7 @@ export const WhatWeDo: Block = {
         },
         {
           name: 'lucideIcon',
+          required: true,
           type: 'text',
           label: 'Nome Icona Lucide (es: Heart, Star, Smile)',
           admin: {
@@ -60,6 +64,7 @@ export const WhatWeDo: Block = {
         {
           name: 'uploadIcon',
           type: 'upload',
+          required: true,
           relationTo: 'media',
           label: 'Carica Immagine',
           admin: {

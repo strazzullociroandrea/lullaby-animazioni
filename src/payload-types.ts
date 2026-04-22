@@ -200,8 +200,8 @@ export interface Page {
             subtitle: string;
             motto?: string | null;
             image: number | Media;
-            ctaLabel?: string | null;
-            ctaPage?: (number | null) | Page;
+            ctaLabel: string;
+            ctaPage: number | Page;
             showPath?: boolean | null;
             id?: string | null;
             blockName?: string | null;
@@ -226,10 +226,10 @@ export interface Page {
             } | null;
             cards?:
               | {
-                  title?: string | null;
-                  content?: string | null;
+                  title: string;
+                  content: string;
                   toPage: number | Page;
-                  iconType?: ('lucide' | 'image') | null;
+                  iconType: 'lucide' | 'image';
                   lucideIcon?: string | null;
                   uploadIcon?: (number | null) | Media;
                   id?: string | null;
@@ -244,9 +244,9 @@ export interface Page {
             subtitle: string;
             guarantess?:
               | {
-                  title?: string | null;
-                  content?: string | null;
-                  iconType?: ('lucide' | 'image') | null;
+                  title: string;
+                  content: string;
+                  iconType: 'lucide' | 'image';
                   lucideIcon?: string | null;
                   uploadIcon?: (number | null) | Media;
                   id?: string | null;
@@ -273,8 +273,8 @@ export interface Page {
               };
               [k: string]: unknown;
             } | null;
-            image?: (number | null) | Media;
-            content?: {
+            image: number | Media;
+            content: {
               root: {
                 type: string;
                 children: {
@@ -288,7 +288,7 @@ export interface Page {
                 version: number;
               };
               [k: string]: unknown;
-            } | null;
+            };
             id?: string | null;
             blockName?: string | null;
             blockType: 'anima';
@@ -552,14 +552,12 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Navbar {
   id: number;
   logo: number | Media;
-  logoText?: string | null;
-  navItems?:
-    | {
-        pageReference: number | Page;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  logoText: string;
+  navItems: {
+    pageReference: number | Page;
+    label: string;
+    id?: string | null;
+  }[];
   instagram: string;
   facebook: string;
   phoneNumber: string;
