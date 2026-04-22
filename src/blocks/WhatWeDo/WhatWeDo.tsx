@@ -17,6 +17,7 @@ export const WhatWeDo = ({ headerData }: { headerData: any }) => {
           {description && (
             <div
               className="
+              text-muted-foreground
               prose
               prose-lg
               md:prose-xl

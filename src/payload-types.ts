@@ -237,6 +237,23 @@ export interface Page {
             blockName?: string | null;
             blockType: 'what-we-do';
           }
+        | {
+            title: string;
+            subtitle: string;
+            guarantess?:
+              | {
+                  title?: string | null;
+                  content?: string | null;
+                  iconType?: ('lucide' | 'image') | null;
+                  lucideIcon?: string | null;
+                  uploadIcon?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'garanzie';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -409,6 +426,24 @@ export interface PagesSelect<T extends boolean = true> {
                     title?: T;
                     content?: T;
                     toPage?: T;
+                    iconType?: T;
+                    lucideIcon?: T;
+                    uploadIcon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        garanzie?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              guarantess?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
                     iconType?: T;
                     lucideIcon?: T;
                     uploadIcon?: T;
