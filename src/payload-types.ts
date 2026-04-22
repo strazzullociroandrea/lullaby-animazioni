@@ -91,9 +91,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     Navbar: Navbar;
+    footer: Footer;
   };
   globalsSelect: {
     Navbar: NavbarSelect<false> | NavbarSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
   widgets: {
@@ -566,6 +568,47 @@ export interface Navbar {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  logo: number | Media;
+  title: string;
+  subtitle: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  items: {
+    pages: {
+      pageReference: number | Page;
+      label: string;
+      id?: string | null;
+    }[];
+  };
+  contacts: {
+    phone: string;
+    email: string;
+    iglink: string;
+    fcblink: string;
+    iva: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Navbar_select".
  */
 export interface NavbarSelect<T extends boolean = true> {
@@ -581,6 +624,39 @@ export interface NavbarSelect<T extends boolean = true> {
   instagram?: T;
   facebook?: T;
   phoneNumber?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  logo?: T;
+  title?: T;
+  subtitle?: T;
+  description?: T;
+  items?:
+    | T
+    | {
+        pages?:
+          | T
+          | {
+              pageReference?: T;
+              label?: T;
+              id?: T;
+            };
+      };
+  contacts?:
+    | T
+    | {
+        phone?: T;
+        email?: T;
+        iglink?: T;
+        fcblink?: T;
+        iva?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
