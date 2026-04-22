@@ -29,8 +29,8 @@ export const Soul = ({ headerData }: { headerData: any }) => {
           )}
         </div>
         <div className="mt-5 grid sm:grid-cols-1 lg:grid-cols-2 gap-5">
-          <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-glow max-w-md mx-auto">
-            <img src={image.url} alt="Immagine anima di Lullaby" />
+          <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-glow max-w-sm mx-auto">
+            <img src={image.url} alt={image.alt} />
           </div>
           <div className="text-muted-foreground h-auto">
             <RichText data={content} />
