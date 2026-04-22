@@ -6,6 +6,7 @@ import { Hero } from '@/blocks/Hero/Hero'
 import { Metadata } from 'next'
 import { WhatWeDo } from '@/blocks/WhatWeDo/WhatWeDo'
 import { Guarantess } from '@/blocks/Guarantess/Guarantess'
+import { Soul } from '@/blocks/Soul/Soul'
 
 export async function generateMetadata({
   params,
@@ -67,6 +68,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug?: st
   const heroResult = page.layout?.find((block) => block.blockType === 'hero')
   const wwdResult = page.layout?.find((block) => block.blockType === 'what-we-do')
   const guaranResult = page.layout?.find((block) => block.blockType === 'garanzie')
+  const soulResult = page.layout?.find((block) => block.blockType === 'anima')
 
   return (
     <main>
@@ -79,6 +81,9 @@ export default async function SlugPage({ params }: { params: Promise<{ slug?: st
         }
         if (block.blockType === 'garanzie') {
           return <Guarantess headerData={guaranResult} key="guarantess" />
+        }
+        if (block.blockType === 'anima') {
+          return <Soul headerData={soulResult} key="soul" />
         }
 
         return null

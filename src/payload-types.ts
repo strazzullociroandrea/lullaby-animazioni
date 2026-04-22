@@ -254,6 +254,43 @@ export interface Page {
             blockName?: string | null;
             blockType: 'garanzie';
           }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image?: (number | null) | Media;
+            content?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'anima';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -449,6 +486,16 @@ export interface PagesSelect<T extends boolean = true> {
                     uploadIcon?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        anima?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              content?: T;
               id?: T;
               blockName?: T;
             };
