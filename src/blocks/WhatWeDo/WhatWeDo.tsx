@@ -9,10 +9,10 @@ export const WhatWeDo = ({ headerData }: { headerData: any }) => {
   }
 
   return (
-    <section id="cosa-facciamo" className="py-10 md:py-5 ">
+    <section id="cosa-facciamo" className="py-10 md:py-5  ">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center">
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mb-6">{title}</h2>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mb-6">{title || "Titolo"}</h2>
 
           {description && (
             <div
@@ -39,7 +39,7 @@ export const WhatWeDo = ({ headerData }: { headerData: any }) => {
             <a
               href={s.toPage.url}
               key={s.title}
-              className={`${getCardColor(i)} rounded-3xl p-7 text-primary-foreground shadow-card-soft hover:-translate-y-2 hover:shadow-glow transition-bounce animate-pop-in block`}
+              className={`h-60 lg:h-75 ${getCardColor(i)} rounded-3xl p-7 text-primary-foreground shadow-card-soft hover:-translate-y-2 hover:shadow-glow transition-bounce animate-pop-in block`}
               style={{ animationDelay: `${i * 0.08}s` }}
             >
               <div className="w-14 h-14 rounded-2xl bg-primary-foreground/20 backdrop-blur flex items-center justify-center mb-5"></div>

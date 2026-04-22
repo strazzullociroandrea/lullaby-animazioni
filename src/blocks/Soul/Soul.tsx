@@ -7,7 +7,7 @@ export const Soul = ({ headerData }: { headerData: any }) => {
     <section id="cosa-facciamo" className="py-10 md:py-5 mt-5 ">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center">
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mb-6">{title}</h2>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mb-6">{title || "Titolo"}</h2>
           {description && (
             <div
               className="

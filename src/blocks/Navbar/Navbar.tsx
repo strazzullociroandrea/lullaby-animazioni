@@ -63,7 +63,7 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
             <div className="flex items-center gap-1.5">
               <Link
                 key="instragram"
-                href={instagram}
+                href={instagram || '/'}
                 aria-label="instagram"
                 className="cursor-pointer w-9 h-9 rounded-full bg-secondary text-primary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
                 target="_blank"
@@ -73,7 +73,7 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
               </Link>
               <Link
                 key="facebook"
-                href={facebook}
+                href={facebook || '/'}
                 aria-label="facebook"
                 className="cursor-pointer w-9 h-9 rounded-full bg-secondary text-primary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
                 target="_blank"
@@ -83,10 +83,10 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
               </Link>
             </div>
             <Link
-              href={`tel:${phoneNumber.replaceAll(' ')}`}
+              href={`tel:${phoneNumber ? phoneNumber.replaceAll(' ') : ''}`}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-card-soft hover:shadow-glow hover:-translate-y-0.5 transition-bounce"
             >
-              <Phone className="w-4 h-4" /> {phoneNumber}
+              <Phone className="w-4 h-4" /> {phoneNumber || 'Cellulare'}
             </Link>
           </div>
         </div>
@@ -123,7 +123,7 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
             <div className="flex items-center gap-2 mt-3 w-full">
               <Link
                 key="instragram"
-                href={instagram}
+                href={instagram || '/'}
                 aria-label="instagram"
                 className="cursor-pointer w-10 h-10 rounded-full bg-secondary text-primary flex items-center justify-center"
                 target="_blank"
@@ -133,7 +133,7 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
               </Link>
               <Link
                 key="facebook"
-                href={facebook}
+                href={facebook || '/'}
                 aria-label="facebook"
                 className="cursor-pointer w-9 h-9 rounded-full bg-secondary text-primary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
                 target="_blank"
@@ -144,10 +144,10 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
             </div>
             <div className="w-full ">
               <Link
-                href={`tel:${phoneNumber.replaceAll(' ')}`}
+                href={`tel:${phoneNumber ? phoneNumber.replaceAll(' ') : ''}`}
                 className="mt-3 flex w-full items-center justify-center gap-2 px-5 py-3 rounded-full bg-primary text-primary-foreground font-bold transition-bounce"
               >
-                <Phone className="w-4 h-4" /> {phoneNumber}
+                <Phone className="w-4 h-4" /> {phoneNumber || 'Cellulare'}
               </Link>
             </div>
           </div>
