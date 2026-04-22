@@ -3,8 +3,8 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
-import { InstagramIcon } from './instagram-icon'
-import { FacebookIcon } from './facebook-icon'
+import { InstagramIcon } from '../instagram-icon'
+import { FacebookIcon } from '../facebook-icon'
 import { usePathname } from 'next/navigation'
 
 export const Navbar = ({ headerData }: { headerData: any }) => {
