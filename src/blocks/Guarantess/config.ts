@@ -1,52 +1,43 @@
 import { Block } from 'payload'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-export const WhatWeDo: Block = {
-  slug: 'what-we-do',
+
+export const GuarantessConfig: Block = {
+  slug: 'garanzie',
   fields: [
     {
       name: 'title',
       type: 'text',
-      label: 'Titolo Sezione',
+      label: 'Titolo',
       required: true,
     },
     {
-      name: 'description',
-      type: 'richText',
-      label: 'Descrizione',
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [...defaultFeatures],
-      }),
+      label: 'Sottotitolo',
+      name: 'subtitle',
+      type: 'textarea',
+      required: true,
     },
     {
-      name: 'cards',
+      name: 'guarantess',
       type: 'array',
-      label: 'Servizi (Card)',
+      label: 'Garanzie',
       fields: [
         {
           name: 'title',
           type: 'text',
-          required: true,
           label: 'Titolo Servizio',
+          required: true,
         },
         {
           name: 'content',
           type: 'textarea',
-          required: true,
           label: 'Descrizione Servizio',
-        },
-        {
-          name: 'toPage',
-          type: 'relationship',
-          relationTo: 'pages',
           required: true,
-          label: 'Seleziona Pagina',
         },
         {
           name: 'iconType',
           type: 'select',
           label: 'Tipo di Icona',
-          defaultValue: 'lucide',
           required: true,
+          defaultValue: 'lucide',
           options: [
             { label: 'Icona Lucide (Testo)', value: 'lucide' },
             { label: 'Immagine Personale', value: 'image' },
@@ -54,9 +45,9 @@ export const WhatWeDo: Block = {
         },
         {
           name: 'lucideIcon',
-          required: true,
           type: 'text',
           label: 'Nome Icona Lucide (es: Heart, Star, Smile)',
+          required: true,
           admin: {
             condition: (_, siblingData) => siblingData?.iconType === 'lucide',
           },
@@ -64,8 +55,8 @@ export const WhatWeDo: Block = {
         {
           name: 'uploadIcon',
           type: 'upload',
-          required: true,
           relationTo: 'media',
+          required: true,
           label: 'Carica Immagine',
           admin: {
             condition: (_, siblingData) => siblingData?.iconType === 'image',

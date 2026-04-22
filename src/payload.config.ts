@@ -1,14 +1,14 @@
-import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-
+import { postgresAdapter } from '@payloadcms/db-postgres'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
-import { NavbarConfig } from './blocks/Navbar/config'
+import { NavbarConfig } from '@/blocks/Navbar/config'
+import { FooterConfig } from '@/blocks/Footer/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -20,16 +20,19 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  globals: [NavbarConfig],
+  globals: [NavbarConfig, FooterConfig],
   collections: [Users, Media, Pages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  db: sqliteAdapter({
-    client: {
-      url: process.env.DATABASE_URL || '',
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URL || '',
+      ssl: {
+        rejectUnauthorized: false,
+      },
     },
   }),
   sharp,

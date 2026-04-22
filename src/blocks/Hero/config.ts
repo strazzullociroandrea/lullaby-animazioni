@@ -45,6 +45,7 @@ export const HeroConfig: Block = {
           name: 'ctaLabel',
           type: 'text',
           label: 'Testo pulsante',
+          required: true,
           admin: { width: '50%' },
         },
         {
@@ -52,6 +53,7 @@ export const HeroConfig: Block = {
           type: 'relationship',
           relationTo: 'pages',
           label: 'Pagina di destinazione',
+          required: true,
           admin: { width: '50%' },
         },
       ],

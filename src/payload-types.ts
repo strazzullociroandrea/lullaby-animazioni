@@ -91,9 +91,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     Navbar: Navbar;
+    footer: Footer;
   };
   globalsSelect: {
     Navbar: NavbarSelect<false> | NavbarSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
   widgets: {
@@ -198,8 +200,8 @@ export interface Page {
             subtitle: string;
             motto?: string | null;
             image: number | Media;
-            ctaLabel?: string | null;
-            ctaPage?: (number | null) | Page;
+            ctaLabel: string;
+            ctaPage: number | Page;
             showPath?: boolean | null;
             id?: string | null;
             blockName?: string | null;
@@ -224,10 +226,10 @@ export interface Page {
             } | null;
             cards?:
               | {
-                  title?: string | null;
-                  content?: string | null;
+                  title: string;
+                  content: string;
                   toPage: number | Page;
-                  iconType?: ('lucide' | 'image') | null;
+                  iconType: 'lucide' | 'image';
                   lucideIcon?: string | null;
                   uploadIcon?: (number | null) | Media;
                   id?: string | null;
@@ -236,6 +238,60 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'what-we-do';
+          }
+        | {
+            title: string;
+            subtitle: string;
+            guarantess?:
+              | {
+                  title: string;
+                  content: string;
+                  iconType: 'lucide' | 'image';
+                  lucideIcon?: string | null;
+                  uploadIcon?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'garanzie';
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image: number | Media;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'anima';
           }
       )[]
     | null;
@@ -417,6 +473,34 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        garanzie?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              guarantess?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    iconType?: T;
+                    lucideIcon?: T;
+                    uploadIcon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        anima?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              content?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -468,17 +552,56 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Navbar {
   id: number;
   logo: number | Media;
-  logoText?: string | null;
-  navItems?:
-    | {
-        pageReference: number | Page;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  instagram?: string | null;
-  facebook?: string | null;
-  phoneNumber?: string | null;
+  logoText: string;
+  navItems: {
+    pageReference: number | Page;
+    label: string;
+    id?: string | null;
+  }[];
+  instagram: string;
+  facebook: string;
+  phoneNumber: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  logo: number | Media;
+  title: string;
+  subtitle: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  items: {
+    pages: {
+      pageReference: number | Page;
+      label: string;
+      id?: string | null;
+    }[];
+  };
+  contacts: {
+    phone: string;
+    email: string;
+    iglink: string;
+    fcblink: string;
+    iva: string;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -499,6 +622,39 @@ export interface NavbarSelect<T extends boolean = true> {
   instagram?: T;
   facebook?: T;
   phoneNumber?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  logo?: T;
+  title?: T;
+  subtitle?: T;
+  description?: T;
+  items?:
+    | T
+    | {
+        pages?:
+          | T
+          | {
+              pageReference?: T;
+              label?: T;
+              id?: T;
+            };
+      };
+  contacts?:
+    | T
+    | {
+        phone?: T;
+        email?: T;
+        iglink?: T;
+        fcblink?: T;
+        iva?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
