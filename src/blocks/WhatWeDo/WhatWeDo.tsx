@@ -57,10 +57,9 @@ export const WhatWeDo = ({ headerData }: { headerData: any }) => {
             >
               <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z" />
             </svg>
-
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mb-6">
+            <h2 className="relative z-10 font-display font-bold text-4xl md:text-5xl text-primary">
               {title || 'Titolo'}
-              <span className="absolute -bottom-2 left-0 w-full h-2 bg-brand-pink/30 rounded-full -z-10" />
+              <span className="absolute -bottom-1 left-0 w-full h-1.5 bg-brand-pink/20 rounded-full -z-10" />
             </h2>
 
             <div className="absolute -right-10 top-0 flex flex-col gap-2">
