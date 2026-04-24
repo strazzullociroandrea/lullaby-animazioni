@@ -19,7 +19,7 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/85 backdrop-blur-md border-b border-border/60">
-      <div className="container mx-auto flex items-center justify-between py-3 px-4">
+      <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <div>
           <div className="flex justify-start">
             <Link href="/" className="flex flex-col items-center gap-1 group">

@@ -7,16 +7,16 @@ export const Hero = ({ headerData }: { headerData: any }) => {
   return (
     <section
       id="home"
-      className={`relative overflow-hidden text-primary-foreground min-h-[90vh] flex items-center ${backgroundColor || 'bg-white'}`}
+      className={`relative overflow-hidden text-primary-foreground min-h-[60vh] flex items-center ${backgroundColor || 'bg-white'}`}
     >
-      <div className="container relative mx-auto px-6 pt-24 pb-48 md:pt-32 md:pb-64 lg:ml-20 lg:mr-auto">
+      <div className="container relative mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-50 lg:ml-20 lg:mr-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="animate-pop-in z-10">
             <h1 className="font-display font-bold text-5xl md:text-7xl leading-[0.95] mb-6">
-              {title || "Titolo"}
+              {title || 'Titolo'}
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mb-8">
-              {subtitle || "Sottotitolo"}
+              {subtitle || 'Sottotitolo'}
             </p>
 
             {motto && <p className="text-brand-yellow font-bold text-lg mb-10">✦ {motto}</p>}
@@ -26,7 +26,7 @@ export const Hero = ({ headerData }: { headerData: any }) => {
                 href={typeof ctaPage === 'object' && ctaPage?.slug ? `/${ctaPage.slug}` : '/'}
                 className="px-7 py-4 rounded-full bg-primary-foreground text-primary font-bold shadow-card-soft hover:-translate-y-1 hover:shadow-glow transition-bounce"
               >
-                {ctaLabel || "Premimi"}
+                {ctaLabel || 'Premimi'}
               </Link>
             </div>
             <div className="flex flex-wrap gap-4 mt-12 items-center justify-center w-full animate-bounce">
@@ -37,15 +37,17 @@ export const Hero = ({ headerData }: { headerData: any }) => {
           <div className="hidden sm:block relative animate-pop-in [animation-delay:0.2s]">
             <div className="relative aspect-square max-w-md mx-auto">
               <div className="absolute -inset-6 rounded-[3rem] bg-primary-foreground/10 backdrop-blur-sm" />
-                <img
+              <img
                 src={image.url}
                 alt="Image Hero"
                 className="w-full h-auto relative rounded-[3rem]  object-cover shadow-glowl"
               />
-              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-brand-yellow flex items-center justify-center text-3xl rotate-12 animate-wiggle shadow-card-soft">
+              <div
+                className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-brand-yellow flex items-center justify-center text-3xl rotate-12 animate-wiggle shadow-card-soft">
                 🎵
               </div>
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-brand-pink flex items-center justify-center text-3xl shadow-card-soft animate-float">
+              <div
+                className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-brand-pink flex items-center justify-center text-3xl shadow-card-soft animate-float">
                 🎨
               </div>
             </div>
