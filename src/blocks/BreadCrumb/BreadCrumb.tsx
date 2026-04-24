@@ -35,7 +35,7 @@ export const BreadCrumb = ({ headerData }: { headerData: any }) => {
             return (
               <div
                 key={i}
-                className={`border-2 transition-all duration-300 rounded-[2rem] overflow-hidden ${
+                className={` cursor-pointer border-2 transition-all duration-300 rounded-[2rem] overflow-hidden ${
                   isOpen
                     ? 'border-primary/30 bg-white shadow-glow'
                     : 'border-transparent bg-white/50 shadow-card-soft hover:bg-white'
@@ -43,7 +43,7 @@ export const BreadCrumb = ({ headerData }: { headerData: any }) => {
               >
                 <button
                   onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between p-6 text-left outline-none"
+                  className=" cursor-pointer w-full flex items-center justify-between p-6 text-left outline-none"
                 >
                   <span className={`font-display  text-lg md:text-xl transition-colors ${
                     isOpen ? 'text-primary' : 'text-foreground'
