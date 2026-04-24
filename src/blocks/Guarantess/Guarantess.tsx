@@ -43,14 +43,14 @@ export const Guarantess = ({ headerData }: { headerData: any }) => {
   const { title, description, guarantess } = headerData
 
   return (
-    <section className="mt-5 mb-8">
+    <section className="mt-5 mb-15">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center">
 
           <div className="relative inline-block mb-6">
             <span className="absolute -top-4 -left-7 text-2xl animate-pulse text-brand-yellow">✦</span>
 
-            <h2 className="relative z-10 font-display font-bold text-4xl md:text-5xl text-primary">
+            <h2 className="relative z-10 font-display font-bold text-5xl md:text-6xl text-primary">
               {title || 'Titolo'}
               <span className="absolute -bottom-1 left-0 w-full h-1.5 bg-brand-pink/20 rounded-full -z-10" />
             </h2>

@@ -46,7 +46,7 @@ export const WhatWeDo = ({ headerData }: { headerData: any }) => {
   }
 
   return (
-    <section id="cosa-facciamo" className="py-10 md:py-5 mb-10 ">
+    <section id="cosa-facciamo" className="py-10 md:py-5 mb-15 ">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center">
           <div className="relative inline-block mb-8">
@@ -57,7 +57,7 @@ export const WhatWeDo = ({ headerData }: { headerData: any }) => {
             >
               <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z" />
             </svg>
-            <h2 className="relative z-10 font-display font-bold text-4xl md:text-5xl text-primary">
+            <h2 className="relative z-10 font-display font-bold text-5xl md:text-6xl text-primary">
               {title || 'Titolo'}
               <span className="absolute -bottom-1 left-0 w-full h-1.5 bg-brand-pink/20 rounded-full -z-10" />
             </h2>

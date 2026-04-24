@@ -7,7 +7,7 @@ export const Hero = ({ headerData }: { headerData: any }) => {
   return (
     <section
       id="home"
-      className={`relative overflow-hidden text-primary-foreground min-h-[60vh] flex items-center ${backgroundColor || 'bg-white'}`}
+      className={`relative overflow-hidden text-primary-foreground min-h-[60vh] flex items-center mb-5 ${backgroundColor || 'bg-white'}`}
     >
       <div className="container relative mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-50 lg:ml-20 lg:mr-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

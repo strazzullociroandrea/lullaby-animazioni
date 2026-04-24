@@ -1,39 +1,72 @@
 import { RichText } from '@payloadcms/richtext-lexical/react'
+import React from 'react'
 
 export const Soul = ({ headerData }: { headerData: any }) => {
   const { title, description, content, image } = headerData
 
+  // Funzione ultra-rigorosa per capire se il RichText ha contenuto reale
+  const hasText = (data: any) => {
+    if (!data || !data.root?.children) return false;
+    // Verifica se c'è almeno un testo che non sia solo spazi bianchi
+    return data.root.children.some((child: any) =>
+      child.children?.some((inner: any) => inner.text?.trim().length > 0)
+    );
+  }
+
   return (
-    <section id="cosa-facciamo" className="py-10 md:py-5 mt-8 ">
+    <section id="anima" className="mt-5 mb-15">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center">
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mb-6">{title || "Titolo"}</h2>
-          {description && (
+          <div className="relative inline-block mb-4">
+            <span className="absolute -top-4 -left-7 text-2xl animate-pulse text-brand-yellow">✦</span>
+            <h2 className="relative z-10 font-display font-bold text-5xl md:text-6xl text-primary">
+              {title || 'Titolo'}
+              <span className="absolute -bottom-1 left-0 w-full h-1.5 bg-brand-pink/20 rounded-full -z-10" />
+            </h2>
+            <span className="absolute -right-6 top-0 text-brand-pink">✦</span>
+          </div>
+
+          {hasText(description) && (
             <div
               className="
-              text-muted-foreground
-              prose
-              prose-lg
-              md:prose-xl
-              max-w-5xl
-              text-center
-              mx-auto
-              prose-p:text-muted-foreground
-              prose-p:leading-relaxed
-              prose-strong:text-primary
-              flex flex-col items-center
-            "
+                mt-10 mb-10
+                prose prose-lg md:prose-xl
+                max-w-5xl text-center mx-auto
+                prose-p:text-muted-foreground
+                prose-p:m-0
+                flex flex-col items-center
+              "
             >
               <RichText data={description} />
             </div>
           )}
         </div>
-        <div className="mt-5 grid sm:grid-cols-1 lg:grid-cols-2 gap-5">
-          <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-glow max-w-sm mx-auto">
-            <img src={image.url} alt={image.alt} />
+
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="relative animate-pop-in">
+            <div className="relative aspect-square max-w-md mx-auto">
+              <div className="absolute -inset-6 rounded-[3rem] bg-secondary/30 backdrop-blur-sm" />
+              <img
+                src={image?.url}
+                alt={title || "Soul Image"}
+                className="w-full h-full relative rounded-[3rem] object-cover shadow-card-soft"
+              />
+              <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-brand-yellow flex items-center justify-center text-2xl shadow-card-soft">
+                🎵
+              </div>
+              <div className="absolute -bottom-6 -left-6 w-20 h-20 rounded-full bg-brand-pink flex items-center justify-center text-2xl shadow-card-soft">
+                🎨
+              </div>
+            </div>
           </div>
-          <div className="text-muted-foreground h-auto">
-            <RichText data={content} />
+
+          <div className="h-auto">
+            <div className="prose prose-lg max-w-none
+              text-muted-foreground
+              prose-p:my-2
+              prose-strong:text-primary">
+              <RichText data={content} />
+            </div>
           </div>
         </div>
       </div>
