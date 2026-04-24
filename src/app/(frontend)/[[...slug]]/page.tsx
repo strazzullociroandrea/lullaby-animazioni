@@ -94,7 +94,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug?: st
         }
 
         if (block.blockType === 'BreadCrumb') {
-          return <BreadCrumb headerData={breadCrumbResult} key="BreadCrumb" />
+          return <BreadCrumb props={breadCrumbResult} key="BreadCrumb" />
         }
 
 

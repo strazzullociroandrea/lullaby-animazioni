@@ -61,7 +61,7 @@ export const Contacts = ({ headerData }: { headerData: any }) => {
               </div>
               <div className="space-y-2 px-2">
                 {openingHours?.length > 0 ? (
-                  openingHours.map((item: any, i: number) => (
+                  openingHours.map((item: {dayRange: string, hours: string}, i: number) => (
                     <div key={i} className="flex justify-between text-sm py-2 border-b border-dashed border-border last:border-0">
                       <span className="text-muted-foreground font-medium">{item.dayRange}</span>
                       <span className="font-bold text-primary">{item.hours}</span>

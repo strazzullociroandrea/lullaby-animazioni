@@ -30,7 +30,7 @@ export const Footer = ({ headerData }: { headerData: any }) => {
 
         <div className="flex flex-col gap-2">
           <h4 className="font-bold mb-2">Link Rapidi</h4>
-          {items.pages.map((item: any) => (
+          {items.pages.map((item: { label: string, url: string }) => (
             <a
               key={item.label}
               className="cursor-pointer text-sm opacity-80 hover:underline mb-2  text-background/60"
@@ -101,7 +101,8 @@ export const Footer = ({ headerData }: { headerData: any }) => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-6 mt-10 pt-6 border-t border-background/10 text-center text-sm text-background/60">
+      <div
+        className="container mx-auto px-6 mt-10 pt-6 border-t border-background/10 text-center text-sm text-background/60">
         © {new Date().getFullYear()} Lullaby Animazioni. Tutti i diritti riservati.
         <p>
           Developed by{' '}

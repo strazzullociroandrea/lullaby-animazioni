@@ -109,7 +109,8 @@ export const WhatWeDo = ({ headerData }: { headerData: any }) => {
               className={`h-60 lg:h-75 ${getCardColor(i)} rounded-3xl p-7 text-primary-foreground shadow-card-soft hover:-translate-y-2 hover:shadow-glow transition-bounce animate-pop-in block`}
               style={{ animationDelay: `${i * 0.08}s` }}
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary-foreground/20 backdrop-blur flex items-center justify-center mb-5">
+              <div
+                className="w-14 h-14 rounded-2xl bg-primary-foreground/20 backdrop-blur flex items-center justify-center mb-5">
                 <IconRenderer card={s} />
               </div>
               <h3 className="font-display font-bold text-xl mb-3 leading-tight">{s.title}</h3>

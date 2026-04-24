@@ -45,7 +45,13 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
         </div>
         <div className="flex items-center gap-7 text-center">
           <nav className="hidden lg:flex items-center gap-7">
-            {navItems.map((item: any) => (
+            {navItems.map((item: {
+              pageReference:{
+                id: string,
+                slug: string
+              },
+              label: string
+            }) => (
               <Link
                 key={item.pageReference.id}
                 href={item.pageReference.slug}
@@ -101,7 +107,13 @@ export const Navbar = ({ headerData }: { headerData: any }) => {
       {open && (
         <div className="lg:hidden border-t border-border bg-background animate-in fade-in slide-in-from-top-1">
           <div className="container py-6 flex flex-col items-center justify-center gap-4 px-4 mx-auto">
-            {navItems.map((item: any) => {
+            {navItems.map((item: {
+              pageReference: {
+                slug: string,
+                id: string
+              },
+              label: string
+            }) => {
               const slug = item.pageReference.slug === 'home' ? '' : item.pageReference.slug
               const href = `/${slug}`
               const isActive = pathname === href

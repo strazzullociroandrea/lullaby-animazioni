@@ -1,10 +1,11 @@
 'use client'
 import { useState } from 'react'
-import { HelpCircle, Sparkles, ChevronDown } from 'lucide-react'
+import { Sparkles, ChevronDown } from 'lucide-react'
 import React from 'react'
 
-export const BreadCrumb = ({ headerData }: { headerData: any }) => {
-  const { faq } = headerData
+
+export const BreadCrumb = ({ props }: { props: any }) => {
+  const { faq } = props
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const toggle = (index: number) => {
@@ -29,7 +30,10 @@ export const BreadCrumb = ({ headerData }: { headerData: any }) => {
           </div>
         </div>
         <div className="space-y-4">
-          {faq.map((f, i) => {
+          {faq.map((f: {
+            title: string,
+            description: string
+          }, i: number) => {
             const isOpen = openIndex === i
 
             return (

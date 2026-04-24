@@ -4,10 +4,8 @@ import React from 'react'
 export const Soul = ({ headerData }: { headerData: any }) => {
   const { title, description, content, image } = headerData
 
-  // Funzione ultra-rigorosa per capire se il RichText ha contenuto reale
   const hasText = (data: any) => {
     if (!data || !data.root?.children) return false;
-    // Verifica se c'è almeno un testo che non sia solo spazi bianchi
     return data.root.children.some((child: any) =>
       child.children?.some((inner: any) => inner.text?.trim().length > 0)
     );
