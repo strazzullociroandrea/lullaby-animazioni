@@ -46,16 +46,45 @@ export const WhatWeDo = ({ headerData }: { headerData: any }) => {
   }
 
   return (
-    <section id="cosa-facciamo" className="py-10 md:py-5  ">
+    <section id="cosa-facciamo" className="py-10 md:py-5 mb-10 ">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center">
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mb-6">
-            {title || 'Titolo'}
-          </h2>
+          <div className="relative inline-block mb-8">
+            <svg
+              className="absolute -left-8 w-8 h-8 text-brand-yellow animate-pulse"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z" />
+            </svg>
+
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mb-6">
+              {title || 'Titolo'}
+              <span className="absolute -bottom-2 left-0 w-full h-2 bg-brand-pink/30 rounded-full -z-10" />
+            </h2>
+
+            <div className="absolute -right-10 top-0 flex flex-col gap-2">
+              <svg
+                className="w-5 h-5 text-brand-pink "
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z" />
+              </svg>
+              <svg
+                className="w-3 h-3 text-brand-yellow   ml-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z" />
+              </svg>
+            </div>
+          </div>
 
           {description && (
             <div
               className="
+              mt-10 mb-10
               text-muted-foreground
               prose
               prose-lg
