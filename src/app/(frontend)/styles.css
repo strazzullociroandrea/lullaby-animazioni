@@ -5,7 +5,26 @@
 @theme {
     --font-display: "Fredoka", sans-serif;
     --font-body: "Nunito", sans-serif;
-
+    --color-hero-lavender: hsl(265 85% 90%);
+    --color-hero-sky: hsl(195 90% 88%);
+    --color-hero-mint: hsl(150 70% 88%);
+    --color-hero-lemon: hsl(55 100% 90%);
+    --color-hero-peach: hsl(25 95% 90%);
+    --color-hero-rose: hsl(345 90% 92%);
+    --color-hero-ocean: hsl(210 85% 55%);
+    --color-hero-forest: hsl(155 60% 45%);
+    --color-hero-sunshine: hsl(45 100% 55%);
+    --color-hero-fire: hsl(15 90% 60%);
+    --color-hero-bubblegum: hsl(320 80% 75%);
+    --color-hero-indigo: hsl(240 75% 65%);
+    --color-hero-teal: hsl(175 70% 40%);
+    --color-hero-cream: hsl(40 60% 96%);
+    --color-hero-slate: hsl(220 20% 30%);
+    --color-hero-strawberry: hsl(355 85% 65%);
+    --color-hero-aqua: hsl(185 85% 75%);
+    --color-hero-violet: hsl(275 80% 60%);
+    --color-hero-apricot: hsl(30 100% 75%);
+    --color-hero-sage: hsl(120 25% 85%);
     --color-background: hsl(var(--background));
     --color-foreground: hsl(var(--foreground));
 

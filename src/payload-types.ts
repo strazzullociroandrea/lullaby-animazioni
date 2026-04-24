@@ -195,7 +195,33 @@ export interface Page {
   layout?:
     | (
         | {
-            backgroundColor?: ('bg-white' | 'bg-primary' | 'bg-yellow-80' | 'bg-blue-80') | null;
+            backgroundColor?:
+              | (
+                  | 'bg-primary'
+                  | 'bg-brand-yellow'
+                  | 'bg-brand-blue'
+                  | 'bg-hero-lavender'
+                  | 'bg-hero-sky'
+                  | 'bg-hero-mint'
+                  | 'bg-hero-lemon'
+                  | 'bg-hero-peach'
+                  | 'bg-hero-rose'
+                  | 'bg-hero-ocean'
+                  | 'bg-hero-forest'
+                  | 'bg-hero-sunshine'
+                  | 'bg-hero-fire'
+                  | 'bg-hero-bubblegum'
+                  | 'bg-hero-indigo'
+                  | 'bg-hero-teal'
+                  | 'bg-hero-cream'
+                  | 'bg-hero-slate'
+                  | 'bg-hero-strawberry'
+                  | 'bg-hero-aqua'
+                  | 'bg-hero-violet'
+                  | 'bg-hero-apricot'
+                  | 'bg-hero-sage'
+                )
+              | null;
             title: string;
             subtitle: string;
             motto?: string | null;
@@ -292,6 +318,24 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'anima';
+          }
+        | {
+            phone: string;
+            descPhone?: string | null;
+            mail: string;
+            descMail?: string | null;
+            place: string;
+            descPlace?: string | null;
+            openingHours?:
+              | {
+                  dayRange: string;
+                  hours: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contatti';
           }
       )[]
     | null;
@@ -498,6 +542,25 @@ export interface PagesSelect<T extends boolean = true> {
               description?: T;
               image?: T;
               content?: T;
+              id?: T;
+              blockName?: T;
+            };
+        contatti?:
+          | T
+          | {
+              phone?: T;
+              descPhone?: T;
+              mail?: T;
+              descMail?: T;
+              place?: T;
+              descPlace?: T;
+              openingHours?:
+                | T
+                | {
+                    dayRange?: T;
+                    hours?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

@@ -3,6 +3,7 @@ import { HeroConfig } from '@/blocks/Hero/config'
 import { WhatWeDo } from '@/blocks/WhatWeDo/config'
 import { GuarantessConfig } from '@/blocks/Guarantess/config'
 import { SoulConfig } from '@/blocks/Soul/config'
+import { ContactsConfig } from '@/blocks/Contacts/config'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -40,7 +41,7 @@ export const Pages: CollectionConfig = {
               required: true,
               unique: true,
               admin: {
-                description: "L'URL della pagina (es: la-mia-pagina)",
+                description: 'L\'URL della pagina (es: la-mia-pagina)',
               },
             },
             {
@@ -86,7 +87,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [HeroConfig, WhatWeDo, GuarantessConfig, SoulConfig],
+              blocks: [HeroConfig, WhatWeDo, GuarantessConfig, SoulConfig, ContactsConfig],
             },
           ],
         },

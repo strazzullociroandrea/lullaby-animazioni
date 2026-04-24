@@ -3,17 +3,20 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-import { postgresAdapter } from '@payloadcms/db-postgres'
-import { Users } from './collections/Users'
+import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { NavbarConfig } from '@/blocks/Navbar/config'
 import { FooterConfig } from '@/blocks/Footer/config'
+import { Users } from './collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  routes: {
+    admin: '/admin',
+  },
   admin: {
     user: Users.slug,
     importMap: {
@@ -27,12 +30,9 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URL || '',
-      ssl: {
-        rejectUnauthorized: false,
-      },
+  db: sqliteAdapter({
+    client: {
+      url: process.env.DATABASE_URI || 'file:./lullaby-animazioni.db',
     },
   }),
   sharp,

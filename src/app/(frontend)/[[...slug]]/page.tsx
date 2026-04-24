@@ -7,10 +7,11 @@ import { Metadata } from 'next'
 import { WhatWeDo } from '@/blocks/WhatWeDo/WhatWeDo'
 import { Guarantess } from '@/blocks/Guarantess/Guarantess'
 import { Soul } from '@/blocks/Soul/Soul'
+import { Contacts } from '@/blocks/Contacts/Contacts'
 
 export async function generateMetadata({
-  params,
-}: {
+                                         params,
+                                       }: {
   params: Promise<{ slug?: string[] }>
 }): Promise<Metadata> {
   const { slug: slugArray } = await params
@@ -69,6 +70,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug?: st
   const wwdResult = page.layout?.find((block) => block.blockType === 'what-we-do')
   const guaranResult = page.layout?.find((block) => block.blockType === 'garanzie')
   const soulResult = page.layout?.find((block) => block.blockType === 'anima')
+  const contactsResult = page.layout?.find((block) => block.blockType === 'contatti')
 
   return (
     <main>
@@ -84,6 +86,9 @@ export default async function SlugPage({ params }: { params: Promise<{ slug?: st
         }
         if (block.blockType === 'anima') {
           return <Soul headerData={soulResult} key="soul" />
+        }
+        if (block.blockType === 'contatti') {
+          return <Contacts headerData={contactsResult} key="contacts" />
         }
 
         return null
