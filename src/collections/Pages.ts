@@ -4,6 +4,7 @@ import { WhatWeDo } from '@/blocks/WhatWeDo/config'
 import { GuarantessConfig } from '@/blocks/Guarantess/config'
 import { SoulConfig } from '@/blocks/Soul/config'
 import { ContactsConfig } from '@/blocks/Contacts/config'
+import { BreadCrumbConfig } from '@/blocks/BreadCrumb/config'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -87,7 +88,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [HeroConfig, WhatWeDo, GuarantessConfig, SoulConfig, ContactsConfig],
+              blocks: [HeroConfig, WhatWeDo, GuarantessConfig, SoulConfig, ContactsConfig, BreadCrumbConfig],
             },
           ],
         },
