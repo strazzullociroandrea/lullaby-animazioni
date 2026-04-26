@@ -8,7 +8,6 @@ export const HeroConfig: Block = {
       type: 'select',
       label: 'Colore Sfondo',
       defaultValue: 'bg-white',
-      // HeroConfig.ts
       options: [
         { label: 'Viola Lullaby', value: 'bg-primary' }, // Esistente
         { label: 'Giallo Sole', value: 'bg-brand-yellow' }, // Modificato da bg-yellow-80

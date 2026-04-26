@@ -9,6 +9,7 @@ import { Guarantess } from '@/blocks/Guarantess/Guarantess'
 import { Soul } from '@/blocks/Soul/Soul'
 import { Contacts } from '@/blocks/Contacts/Contacts'
 import { BreadCrumb } from '@/blocks/BreadCrumb/BreadCrumb'
+import {FormConferma} from '@/blocks/FormConferma/FormConferma'
 
 export async function generateMetadata({
                                          params,
@@ -73,6 +74,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug?: st
   const soulResult = page.layout?.find((block) => block.blockType === 'anima')
   const contactsResult = page.layout?.find((block) => block.blockType === 'contatti')
   const breadCrumbResult = page.layout?.find((block) => block.blockType === 'BreadCrumb')
+  const formConfermaResult = page.layout?.find((block) => block.blockType === 'formConferma')
 
   return (
     <main>
@@ -97,6 +99,9 @@ export default async function SlugPage({ params }: { params: Promise<{ slug?: st
           return <BreadCrumb props={breadCrumbResult} key="BreadCrumb" />
         }
 
+        if(block.blockType === 'formConferma'){
+          return <FormConferma props={formConfermaResult} key="formConferma" />
+        }
 
         return null
       })}

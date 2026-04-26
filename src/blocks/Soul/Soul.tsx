@@ -5,10 +5,10 @@ export const Soul = ({ headerData }: { headerData: any }) => {
   const { title, description, content, image } = headerData
 
   const hasText = (data: any) => {
-    if (!data || !data.root?.children) return false;
+    if (!data || !data.root?.children) return false
     return data.root.children.some((child: any) =>
-      child.children?.some((inner: any) => inner.text?.trim().length > 0)
-    );
+      child.children?.some((inner: any) => inner.text?.trim().length > 0),
+    )
   }
 
   return (
@@ -46,13 +46,15 @@ export const Soul = ({ headerData }: { headerData: any }) => {
               <div className="absolute -inset-6 rounded-[3rem] bg-secondary/30 backdrop-blur-sm" />
               <img
                 src={image?.url}
-                alt={title || "Soul Image"}
+                alt={title || 'Soul Image'}
                 className="w-full h-full relative rounded-[3rem] object-cover shadow-card-soft"
               />
-              <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-brand-yellow flex items-center justify-center text-2xl shadow-card-soft">
+              <div
+                className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-brand-yellow flex items-center justify-center text-2xl shadow-card-soft">
                 🎵
               </div>
-              <div className="absolute -bottom-6 -left-6 w-20 h-20 rounded-full bg-brand-pink flex items-center justify-center text-2xl shadow-card-soft">
+              <div
+                className="absolute -bottom-6 -left-6 w-20 h-20 rounded-full bg-brand-pink flex items-center justify-center text-2xl shadow-card-soft">
                 🎨
               </div>
             </div>

@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Sparkles, ChevronDown } from 'lucide-react'
 import React from 'react'
 
-
 export const BreadCrumb = ({ props }: { props: any }) => {
   const { faq } = props
   const [openIndex, setOpenIndex] = useState<number | null>(null)

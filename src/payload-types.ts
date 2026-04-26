@@ -349,6 +349,44 @@ export interface Page {
             blockName?: string | null;
             blockType: 'BreadCrumb';
           }
+        | {
+            categoryName: string;
+            info?:
+              | {
+                  fieldName: string;
+                  type: 'text' | 'datetime-local' | 'div' | 'select' | 'select-multiple';
+                  width: 'half' | 'full';
+                  placeholder?: string | null;
+                  info?: string | null;
+                  content?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  selectOptions?:
+                    | {
+                        label: string;
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formConferma';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -601,6 +639,31 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     title?: T;
                     description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        formConferma?:
+          | T
+          | {
+              categoryName?: T;
+              info?:
+                | T
+                | {
+                    fieldName?: T;
+                    type?: T;
+                    width?: T;
+                    placeholder?: T;
+                    info?: T;
+                    content?: T;
+                    selectOptions?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          id?: T;
+                        };
                     id?: T;
                   };
               id?: T;
