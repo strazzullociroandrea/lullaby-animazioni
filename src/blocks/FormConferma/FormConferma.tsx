@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Send, Info, Sparkles, ChevronDown, Check } from 'lucide-react'
 import { RichText } from '@payloadcms/richtext-lexical/react'
+import { saveConfirm } from '@/app/save-confirm'
 
 export const FormConferma = ({ props }: { props: any }) => {
   const { categoryName, info } = props
@@ -26,7 +27,14 @@ export const FormConferma = ({ props }: { props: any }) => {
 
         <form
           className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8"
-
+          action={async (formData) => {
+            const result = await saveConfirm(formData)
+            if (result.success) {
+              alert('Messaggio inviato con successo!')
+            } else {
+              alert('Errore durante l\'invio.\n Ritenta più tardi o contattaci direttamente via email o telefono.')
+            }
+          }}
         >
           {info?.map((field: any, index: number) => {
             const isFull = field.width === 'full' || field.type === 'div' || field.type === 'select-multiple'

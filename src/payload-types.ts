@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     pages: Page;
     submissions: Submission;
+    confirmation: Confirmation;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     submissions: SubmissionsSelect<false> | SubmissionsSelect<true>;
+    confirmation: ConfirmationSelect<false> | ConfirmationSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -356,6 +358,7 @@ export interface Page {
                   fieldName: string;
                   type: 'text' | 'datetime-local' | 'div' | 'select' | 'select-multiple';
                   width: 'half' | 'full';
+                  required: boolean;
                   placeholder?: string | null;
                   info?: string | null;
                   content?: {
@@ -407,6 +410,24 @@ export interface Submission {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "confirmation".
+ */
+export interface Confirmation {
+  id: number;
+  data?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -444,6 +465,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'submissions';
         value: number | Submission;
+      } | null)
+    | ({
+        relationTo: 'confirmation';
+        value: number | Confirmation;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -654,6 +679,7 @@ export interface PagesSelect<T extends boolean = true> {
                     fieldName?: T;
                     type?: T;
                     width?: T;
+                    required?: T;
                     placeholder?: T;
                     info?: T;
                     content?: T;
@@ -682,6 +708,15 @@ export interface SubmissionsSelect<T extends boolean = true> {
   email?: T;
   phone?: T;
   description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "confirmation_select".
+ */
+export interface ConfirmationSelect<T extends boolean = true> {
+  data?: T;
   updatedAt?: T;
   createdAt?: T;
 }

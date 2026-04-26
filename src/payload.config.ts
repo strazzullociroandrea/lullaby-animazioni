@@ -11,6 +11,7 @@ import { NavbarConfig } from '@/blocks/Navbar/config'
 import { FooterConfig } from '@/blocks/Footer/config'
 import { Users } from './collections/Users'
 import { Submissions } from './collections/Submissions'
+import { Confirmation } from './collections/Confirmation'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -38,7 +39,7 @@ export default buildConfig({
     },
   },
   globals: [NavbarConfig, FooterConfig],
-  collections: [Users, Media, Pages, Submissions],
+  collections: [Users, Media, Pages, Submissions, Confirmation],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
